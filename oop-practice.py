@@ -28,7 +28,7 @@ class Queue:
 
     def dequeue(self):
         if(not self.isEmpty):
-            return self.items.popleft()
+            return self.items.pop(0)
         return None
 
     def isEmpty(self):
@@ -39,3 +39,7 @@ class Queue:
     
     def size(self):
         return len(self.items)
+
+class LinkedList:
+    def __init__(self):
+        pass
