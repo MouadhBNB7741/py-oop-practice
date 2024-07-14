@@ -41,5 +41,50 @@ class Queue:
         return len(self.items)
 
 class LinkedList:
+    class Node:
+        def __init__(self,val):
+            self.value=val
+            self.next=None
+
     def __init__(self):
-        pass
+        self.head = None
+
+    def append(self, data):
+        newNode = self.Node(data)
+        if not self.head:
+            self.head = newNode
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = newNode
+
+    def printList(self):
+        current=self.head
+        while(current):
+            print(current.value)
+            current=current.next
+
+    def remove(self, data):
+        current = self.head
+        previous = None
+
+        if not current:
+            print("List is empty, nothing to remove.")
+            return
+
+        if current and current.value == data:
+            self.head = current.next
+            current = None
+            return
+
+        while current and current.value != data:
+            previous = current
+            current = current.next
+
+        if not current:
+            print("Data not found in the list.")
+            return
+
+        previous.next = current.next
+        current = None
